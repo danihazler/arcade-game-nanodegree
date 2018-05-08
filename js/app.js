@@ -17,6 +17,8 @@ Enemy.prototype.update = function(dt) {
     this.x = -100;
   }
 
+  handleCollision();
+
 };
 
 // Draw the enemy on the screen, required method for game
@@ -87,3 +89,13 @@ document.addEventListener('keyup', function(e) {
 
   player.handleInput(allowedKeys[e.keyCode]);
 });
+
+// Checking collision
+function handleCollision() {
+  allEnemies.forEach(function(enemy){
+    if ((player.x < enemy.x + 70 && player.x + 50 > enemy.x) && (player.y < enemy.y + 40 && player.y + 40 > enemy.y)) {
+      player.x = 200;
+      player.y = 370;
+    }
+  });
+}
