@@ -3,24 +3,18 @@ var Enemy = function(x,y,speed) {
 
   this.x = x;
   this.y = y;
-  this.speed = speed;
+  this.speed = Math.floor((Math.random() * 150) + 50);
   this.sprite = 'images/enemy-bug.png';
 };
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-  // You should multiply any movement by the dt parameter
-  // which will ensure the game runs at the same speed for
-  // all computers.
 
-  this.x =+ this.x + this.speed;
-
-  // to restart in different positions
-  const randomX = Math.floor(Math.random() * (-85));
-
+  this.x += this.speed * dt;
+  //-- goes back in the beginning once out of the canvas
   if(this.x > 505){
-    this.x = randomX;
+    this.x = -100;
   }
 
 };
@@ -72,12 +66,12 @@ class Player {
 // Place the player object in a variable called player
 const player = new Player(200,350);
 
-const randomSpeed = Math.floor(Math.random() * 6);
+// const randomSpeed = Math.floor(Math.random() * 6);
 
-const enemy = new Enemy(-50,60, randomSpeed);
-const enemy1 = new Enemy(-100,140, randomSpeed);
-const enemy2 = new Enemy(-200,150, randomSpeed);
-const enemy3 = new Enemy(-300,220, randomSpeed);
+const enemy = new Enemy(-50,60);
+const enemy1 = new Enemy(-100,140);
+const enemy2 = new Enemy(-200,150);
+const enemy3 = new Enemy(-300,220);
 
 const allEnemies = [enemy, enemy1, enemy2, enemy3];
 
