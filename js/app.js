@@ -42,7 +42,7 @@ class Player {
   update(dt) {
     this.render();
   }
-  //Player moviments and preventing Player to leave the canvas
+  //-- Player's moviments and prevents Player to leave the canvas
   handleInput(allowedKeys) {
     if(allowedKeys === "up" && this.y > 1){
       this.y -= 80;
@@ -55,6 +55,10 @@ class Player {
     }
     if(allowedKeys === "left" && this.x > 1){
       this.x -= 100;
+    }
+    //-- if Player reachs the water goes back to initial position
+    if(this.y < 30) {
+      this.y = 350;
     }
 
   }
