@@ -1,10 +1,6 @@
 // Enemies our player must avoid
 var Enemy = function(x,y,speed) {
-  // Variables applied to each of our instances go here,
-  // we've provided one for you to get started
 
-  // The image/sprite for our enemies, this uses
-  // a helper we've provided to easily load images
   this.x = x;
   this.y = y;
   this.speed = speed;
@@ -20,7 +16,7 @@ Enemy.prototype.update = function(dt) {
 
   this.x =+ this.x + this.speed;
 
-
+  // to restart in different positions
   const randomX = Math.floor(Math.random() * (-85));
 
   if(this.x > 505){
@@ -34,12 +30,9 @@ Enemy.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-
-
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-
 class Player {
   constructor(x, y) {
     this.x = x;
@@ -49,22 +42,19 @@ class Player {
   update(dt) {
     this.render();
   }
-  handleInput(key) {
-    switch (key) {
-      case "up":
+  //Player moviments and preventing Player to leave the canvas
+  handleInput(allowedKeys) {
+    if(allowedKeys === "up" && this.y > 1){
       this.y -= 80;
-      break;
-      case "right":
-      this.x += 100;
-      break;
-      case "left":
-      this.x -= 100;
-      break;
-      case "down":
+    }
+    if(allowedKeys === "down" && this.y < 350){
       this.y += 80;
-      break;
-      default:
-      // ---- maybe an if statement is a better option
+    }
+    if(allowedKeys === "right" && this.x < 400){
+      this.x += 100;
+    }
+    if(allowedKeys === "left" && this.x > 1){
+      this.x -= 100;
     }
 
   }
@@ -79,10 +69,11 @@ class Player {
 const player = new Player(200,350);
 
 const randomSpeed = Math.floor(Math.random() * 6);
-const enemy = new Enemy(50,60, randomSpeed);
-const enemy1 = new Enemy(100,140, randomSpeed);
-const enemy2 = new Enemy(200,150, randomSpeed);
-const enemy3 = new Enemy(300,220, randomSpeed);
+
+const enemy = new Enemy(-50,60, randomSpeed);
+const enemy1 = new Enemy(-100,140, randomSpeed);
+const enemy2 = new Enemy(-200,150, randomSpeed);
+const enemy3 = new Enemy(-300,220, randomSpeed);
 
 const allEnemies = [enemy, enemy1, enemy2, enemy3];
 
