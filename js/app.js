@@ -52,7 +52,7 @@ class Player {
     }
     //-- if Player reachs the water goes back to initial position
     if(this.y < 30) {
-      this.y = 350;
+      this.y = 370;
     }
 
   }
@@ -64,9 +64,7 @@ class Player {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-const player = new Player(200,350);
-
-// const randomSpeed = Math.floor(Math.random() * 6);
+const player = new Player(200,370);
 
 const enemy = new Enemy(-50,60);
 const enemy1 = new Enemy(-100,140);
