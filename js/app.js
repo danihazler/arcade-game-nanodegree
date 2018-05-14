@@ -2,6 +2,8 @@
 const livesCounter = document.querySelector("#lives-counter");
 const scoreCounter = document.querySelector("#score-counter");
 const gameOverModal = document.querySelector(".game-over-modal");
+const modalBtn = document.querySelector("#close-modal");
+
 
 let lives;
 let score;
@@ -113,14 +115,24 @@ function handleCollision() {
       player.y = 370;
       lives--;
       livesCounter.innerHTML = lives;
+      //-- checks if lives are finished
       gameOver();
     }
   });
 }
 
+// -- Game Over modal
 function gameOver(){
   if(lives == 0) {
     gameOverModal.classList.add("show-modal");
-
   }
+  closeModal();
+}
+
+// -- Close Modal , Try Again
+function closeModal(){
+  modalBtn.addEventListener("click", function(evt){
+    gameOverModal.classList.remove("show-modal");
+    newGame();
+  });
 }
