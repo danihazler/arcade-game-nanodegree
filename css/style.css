@@ -6,6 +6,12 @@ body {
   text-align: center;
 }
 
+main.container {
+  max-width: 960px;
+  height: auto;
+  margin: 0 auto;
+}
+
 .flex {
   display: flex;
   align-items: center;
@@ -33,4 +39,38 @@ body {
 
 #score-panel {
   padding-right: 5%;
+}
+
+.game-over-modal {
+  background: rgba(255, 255, 0, 0.87);
+  border-radius: 25px;
+  padding: 3%;
+  height: auto;
+  width: 18%;
+  position: absolute;
+  top: 25%;
+  left: 38%;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 500ms;
+
+}
+
+.game-over-modal button {
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: 100;
+  color: #2fc52f;
+  background: #fff;
+  border-radius:5px;
+  text-align: center;
+  cursor: pointer;
+  padding: .5em;
+  width: 50%;
+}
+
+
+.show-modal {
+  visibility: visible;
+  opacity: 1;
 }

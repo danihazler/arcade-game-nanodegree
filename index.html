@@ -7,18 +7,27 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <section class="info-panel flex">
+  <main class="container">
 
-    <div id="lives-panel" class="flex">
-      <img src="images/Heart.png" alt="Heart Live"> X
-      <span id="lives-counter"> 3 </span>
+    <section class="info-panel flex">
+
+      <div id="lives-panel" class="flex">
+        <img src="images/Heart.png" alt="Heart Live"> X
+        <span id="lives-counter"> 3 </span>
+      </div>
+
+      <div id="score-panel">
+        <span id="score-counter"> </span>
+      </div>
+
+    </section>
+
+    <div class="game-over-modal">
+      <h2> Game Over! </h2>
+      <button type="button" name="button">Try Again</button>
     </div>
 
-    <div id="score-panel">
-      <span id="score-counter"> </span>
-    </div>
-
-  </section>
+  </main>
 
   <script src="js/resources.js"></script>
   <script src="js/app.js"></script>

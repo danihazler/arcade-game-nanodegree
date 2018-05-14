@@ -1,6 +1,7 @@
 //-- Variables to handle Player lives
 const livesCounter = document.querySelector("#lives-counter");
 const scoreCounter = document.querySelector("#score-counter");
+const gameOverModal = document.querySelector(".game-over-modal");
 
 let lives;
 let score;
@@ -119,6 +120,7 @@ function handleCollision() {
 
 function gameOver(){
   if(lives == 0) {
-    alert("FIM!"); // test
+    gameOverModal.classList.add("show-modal");
+
   }
 }
