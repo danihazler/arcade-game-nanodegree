@@ -1,3 +1,8 @@
+//-- Variables to handle Player lives
+const livesCounter = document.querySelector("#lives-counter");
+
+let lives = 3;
+
 // Player class
 // This class has an update(), render() and
 // a handleInput() method.
@@ -6,7 +11,7 @@ class Player {
     this.x = x;
     this.y = y;
     this.sprite = 'images/char-boy.png';
-    this.lives = 3;
+    // this.lives = 3;
   }
   update(dt) {
     this.render();
@@ -91,7 +96,8 @@ function handleCollision() {
     if ((player.x < enemy.x + 70 && player.x + 50 > enemy.x) && (player.y < enemy.y + 40 && player.y + 40 > enemy.y)) {
       player.x = 200;
       player.y = 370;
-      player.lives--;
+      lives--;
+      livesCounter.innerHTML = lives;
     }
   });
 }
