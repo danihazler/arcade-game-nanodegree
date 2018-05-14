@@ -3,6 +3,15 @@ const livesCounter = document.querySelector("#lives-counter");
 
 let lives = 3;
 
+function newGame() {
+  lives = 3;
+  livesCounter.innerHTML = lives;
+
+};
+
+window.onload = newGame();
+
+
 // Player class
 // This class has an update(), render() and
 // a handleInput() method.
