@@ -1,12 +1,15 @@
 //-- Variables to handle Player lives
 const livesCounter = document.querySelector("#lives-counter");
+const scoreCounter = document.querySelector("#score-counter");
 
 let lives = 3;
+let score = 0;
 
 function newGame() {
   lives = 3;
+  score = 0;
   livesCounter.innerHTML = lives;
-
+  scoreCounter.innerHTML = score;
 };
 
 window.onload = newGame();
@@ -42,6 +45,8 @@ class Player {
     //-- if Player reachs the water goes back to initial position
     if(this.y < 30) {
       this.y = 370;
+      score += 100;
+      scoreCounter.innerHTML = score;
     }
 
   }

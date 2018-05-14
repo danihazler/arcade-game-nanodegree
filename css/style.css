@@ -6,23 +6,31 @@ body {
   text-align: center;
 }
 
+.flex {
+  display: flex;
+  align-items: center;
+}
+
 .info-panel {
+  justify-content: space-between;
   width: 500px;
   margin: 0 auto -5% auto;
 }
 
 .info-panel img {
-  padding: 0 1%;
+  padding: 0 5%;
   width: 30px;
   height: 50px;
 }
 
 #lives-panel {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  padding-left: 5%;
 }
 
 #lives-counter {
-  padding-left: 1%;
+  padding-left: 9%;
+}
+
+#score-panel {
+  padding-right: 5%;
 }
