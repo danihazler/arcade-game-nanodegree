@@ -2,8 +2,8 @@
 const livesCounter = document.querySelector("#lives-counter");
 const scoreCounter = document.querySelector("#score-counter");
 
-let lives = 3;
-let score = 0;
+let lives;
+let score;
 
 function newGame() {
   lives = 3;
@@ -112,6 +112,13 @@ function handleCollision() {
       player.y = 370;
       lives--;
       livesCounter.innerHTML = lives;
+      gameOver();
     }
   });
+}
+
+function gameOver(){
+  if(lives == 0) {
+    alert("FIM!"); // test
+  }
 }
