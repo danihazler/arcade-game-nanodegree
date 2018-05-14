@@ -1,4 +1,3 @@
-
 // Player class
 // This class has an update(), render() and
 // a handleInput() method.
@@ -7,6 +6,7 @@ class Player {
     this.x = x;
     this.y = y;
     this.sprite = 'images/char-boy.png';
+    this.lives = 3;
   }
   update(dt) {
     this.render();
@@ -91,6 +91,7 @@ function handleCollision() {
     if ((player.x < enemy.x + 70 && player.x + 50 > enemy.x) && (player.y < enemy.y + 40 && player.y + 40 > enemy.y)) {
       player.x = 200;
       player.y = 370;
+      player.lives--;
     }
   });
 }

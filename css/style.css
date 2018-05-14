@@ -2,3 +2,23 @@ body {
   background-image: url("../images/bg.png");
   text-align: center;
 }
+
+.info-panel {
+  margin-bottom: -5%;
+}
+
+/* ul#lives {
+  list-style: none;
+  display: inline-flex;
+}*/
+
+.info-panel img {
+  width: 30px;
+  height: 50px;
+}
+
+#lives-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
