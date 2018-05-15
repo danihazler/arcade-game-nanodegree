@@ -2,6 +2,7 @@
 const livesCounter = document.querySelector("#lives-counter");
 const scoreCounter = document.querySelector("#score-counter");
 const gameOverModal = document.querySelector(".game-over-modal");
+const finalScore = document.querySelector("#final-score");
 const modalBtn = document.querySelector("#close-modal");
 
 
@@ -124,6 +125,7 @@ function handleCollision() {
 // -- Game Over modal
 function gameOver(){
   if(lives == 0) {
+    finalScore.innerHTML = score;
     gameOverModal.classList.add("show-modal");
   }
   closeModal();
