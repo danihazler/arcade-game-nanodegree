@@ -12,9 +12,14 @@ main.container {
   margin: 0 auto;
 }
 
-.flex {
+.flex,
+.flex-col {
   display: flex;
   align-items: center;
+}
+
+.flex-col {
+  flex-direction: column;
 }
 
 .info-panel {
@@ -56,6 +61,17 @@ main.container {
 
 }
 
+.rules-modal .flex {
+  align-items: flex-start;
+  padding-bottom: 3%;
+}
+
+.rules-modal img {
+  width: 50px;
+  height: 80px;
+  padding-top: 10%;
+}
+
 .rules-modal button,
 .game-over-modal button {
   font-family: inherit;
@@ -75,8 +91,13 @@ main.container {
   opacity: 1;
 }
 
+.rules-right {
+  width: 42%;
+  padding-top: 4%;
+}
+
 .rules-info {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 400;
   text-align: justify;
   margin-left: 5%;
