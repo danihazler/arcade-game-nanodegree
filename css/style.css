@@ -41,21 +41,22 @@ main.container {
   padding-right: 5%;
 }
 
-.game-over-modal {
+.rules-modal {
   background: rgba(255, 255, 0, 0.87);
   border-radius: 25px;
   padding: 3%;
   height: auto;
-  width: 18%;
+  width: 30%;
   position: absolute;
   top: 25%;
   left: 38%;
-  visibility: hidden;
-  opacity: 0;
+  /* visibility: hidden;
+  opacity: 0; */
   transition: opacity 500ms;
 
 }
 
+.rules-modal button,
 .game-over-modal button {
   font-family: inherit;
   font-size: 1.2rem;
@@ -69,8 +70,14 @@ main.container {
   width: 50%;
 }
 
-
 .show-modal {
   visibility: visible;
   opacity: 1;
+}
+
+.rules-info {
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: justify;
+  margin-left: 5%;
 }
