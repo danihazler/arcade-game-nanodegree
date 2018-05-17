@@ -56,8 +56,8 @@ main.container {
   position: absolute;
   top: 18%;
   left: 32%;
-  /* visibility: hidden;
-  opacity: 0; */
+  visibility: hidden;
+  opacity: 0;
   transition: opacity 500ms;
 
 }

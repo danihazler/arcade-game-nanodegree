@@ -8,10 +8,12 @@ const modalBtn = document.querySelector("#close-modal");
 
 let lives;
 let score;
+let move_plyr;
 
 function newGame() {
   lives = 3;
   score = 0;
+  move_plyr = true;
   livesCounter.innerHTML = lives;
   scoreCounter.innerHTML = score;
 };
@@ -104,8 +106,9 @@ document.addEventListener('keyup', function(e) {
     39: 'right',
     40: 'down'
   };
-
-  player.handleInput(allowedKeys[e.keyCode]);
+  if (move_plyr) {
+    player.handleInput(allowedKeys[e.keyCode]);
+  }
 });
 
 // Checking collision
@@ -117,24 +120,17 @@ function handleCollision() {
       lives--;
       livesCounter.innerHTML = lives;
       //-- checks if lives are finished
-      gameOver();
+      if(lives == 0) {
+        move_plyr = false;
+        finalScore.innerHTML = score;
+        gameOverModal.classList.add("show-modal");
+      }
     }
   });
 }
 
-// -- Game Over modal
-function gameOver(){
-  if(lives == 0) {
-    finalScore.innerHTML = score;
-    gameOverModal.classList.add("show-modal");
-  }
-  closeModal();
-}
-
 // -- Close Modal , Try Again
-function closeModal(){
-  modalBtn.addEventListener("click", function(evt){
-    gameOverModal.classList.remove("show-modal");
-    newGame();
-  });
-}
+modalBtn.addEventListener("click", function(){
+  gameOverModal.classList.remove("show-modal");
+  newGame();
+});
