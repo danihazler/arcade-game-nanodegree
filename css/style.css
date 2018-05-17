@@ -46,15 +46,16 @@ main.container {
   padding-right: 5%;
 }
 
-.rules-modal {
+.rules-modal,
+.game-over-modal {
   background: rgba(255, 255, 0, 0.87);
   border-radius: 25px;
   padding: 3%;
   height: auto;
   width: 30%;
   position: absolute;
-  top: 25%;
-  left: 38%;
+  top: 18%;
+  left: 32%;
   /* visibility: hidden;
   opacity: 0; */
   transition: opacity 500ms;
