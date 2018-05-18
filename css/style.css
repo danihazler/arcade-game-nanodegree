@@ -56,10 +56,22 @@ main.container {
   position: absolute;
   top: 18%;
   left: 32%;
+}
+
+.game-over-modal,
+.hide-modal {
   visibility: hidden;
   opacity: 0;
   transition: opacity 500ms;
+}
+/* 
+.hide-modal {
 
+} */
+
+.show-modal {
+  visibility: visible;
+  opacity: 1;
 }
 
 .rules-modal .flex {
@@ -85,11 +97,6 @@ main.container {
   cursor: pointer;
   padding: .5em;
   width: 50%;
-}
-
-.show-modal {
-  visibility: visible;
-  opacity: 1;
 }
 
 .rules-right {

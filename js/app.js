@@ -3,7 +3,9 @@ const livesCounter = document.querySelector("#lives-counter");
 const scoreCounter = document.querySelector("#score-counter");
 const gameOverModal = document.querySelector(".game-over-modal");
 const finalScore = document.querySelector("#final-score");
+const rulesModal = document.querySelector(".rules-modal");
 const modalBtn = document.querySelector("#close-modal");
+const playBtn = document.querySelector("#play-btn");
 
 
 let lives;
@@ -16,9 +18,16 @@ function newGame() {
   move_plyr = true;
   livesCounter.innerHTML = lives;
   scoreCounter.innerHTML = score;
+  // rulesModal.classList.add("show-modal");
 };
 
 window.onload = newGame();
+
+// -- Close Modal , Play
+playBtn.addEventListener("click", function(){
+  rulesModal.classList.add("hide-modal");
+  // newGame();
+});
 
 
 // Player class
