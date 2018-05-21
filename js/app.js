@@ -1,4 +1,4 @@
-//-- Variables to handle Player lives
+//-- Variables to handle events
 const livesCounter = document.querySelector("#lives-counter");
 const scoreCounter = document.querySelector("#score-counter");
 const gameOverModal = document.querySelector(".game-over-modal");
@@ -7,18 +7,17 @@ const rulesModal = document.querySelector(".rules-modal");
 const modalBtn = document.querySelector("#close-modal");
 const playBtn = document.querySelector("#play-btn");
 
-
 let lives;
 let score;
-let move_plyr;
+let move_player;
 
+// -- (Re)Start the game
 function newGame() {
   lives = 3;
   score = 0;
-  move_plyr = true;
+  move_player = true;
   livesCounter.innerHTML = lives;
   scoreCounter.innerHTML = score;
-  // rulesModal.classList.add("show-modal");
 };
 
 window.onload = newGame();
@@ -26,9 +25,7 @@ window.onload = newGame();
 // -- Close Modal , Play
 playBtn.addEventListener("click", function(){
   rulesModal.classList.add("hide-modal");
-  // newGame();
 });
-
 
 // Player class
 // This class has an update(), render() and
@@ -38,7 +35,6 @@ class Player {
     this.x = x;
     this.y = y;
     this.sprite = 'images/char-boy.png';
-    // this.lives = 3;
   }
   update(dt) {
     this.render();
@@ -95,7 +91,8 @@ class Enemy {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
 }
-// Instantiate objects.
+
+// --Instantiate objects.
 const player = new Player(200,370);
 
 const enemy = new Enemy(-50,60);
@@ -104,7 +101,6 @@ const enemy2 = new Enemy(-200,150);
 const enemy3 = new Enemy(-300,220);
 
 const allEnemies = [enemy, enemy1, enemy2, enemy3];
-
 
 // This listens for key presses and sends the keys to
 // Player.handleInput() method.
@@ -115,7 +111,7 @@ document.addEventListener('keyup', function(e) {
     39: 'right',
     40: 'down'
   };
-  if (move_plyr) {
+  if (move_player) {
     player.handleInput(allowedKeys[e.keyCode]);
   }
 });
@@ -130,7 +126,7 @@ function handleCollision() {
       livesCounter.innerHTML = lives;
       //-- checks if lives are finished
       if(lives == 0) {
-        move_plyr = false;
+        move_player = false;
         finalScore.innerHTML = score;
         gameOverModal.classList.add("show-modal");
       }
