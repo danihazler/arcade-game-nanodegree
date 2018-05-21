@@ -23,6 +23,7 @@ function newGame() {
   move_player = true;
   livesCounter.innerHTML = lives;
   scoreCounter.innerHTML = score;
+  timer.innerHTML = timeLeft;
 };
 
 window.onload = newGame();
@@ -31,12 +32,19 @@ window.onload = newGame();
 function countdown(){
 
   timer.innerHTML = timeLeft - counter;
+  const interval = setInterval(timeInt, 1000);
 
   function timeInt() {
     counter ++;
     timer.innerHTML = timeLeft - counter;
+    if (counter == timeLeft) {
+      gameOverModal.classList.add("show-modal");
+      finalScore.innerHTML = score;
+      clearInterval(interval);
+      counter = 0;
+      move_player = false;
+    }
   }
-  setInterval(timeInt, 1000);
 }
 
 // -- Close Modal , Play
@@ -44,7 +52,6 @@ playBtn.addEventListener("click", function(){
   rulesModal.classList.add("hide-modal");
   countdown();
 });
-
 
 // Player class
 // This class has an update(), render() and
@@ -148,6 +155,7 @@ function handleCollision() {
         move_player = false;
         finalScore.innerHTML = score;
         gameOverModal.classList.add("show-modal");
+        clearInterval(interval);
       }
     }
   });
@@ -157,4 +165,5 @@ function handleCollision() {
 modalBtn.addEventListener("click", function(){
   gameOverModal.classList.remove("show-modal");
   newGame();
+  countdown();
 });
