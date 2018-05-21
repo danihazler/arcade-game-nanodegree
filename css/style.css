@@ -16,6 +16,7 @@ main.container {
 .flex-col {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .flex-col {
@@ -23,9 +24,12 @@ main.container {
 }
 
 .info-panel {
-  justify-content: space-between;
   width: 500px;
   margin: 0 auto -5% auto;
+}
+
+.performance {
+  width: 50%;
 }
 
 .info-panel img {
@@ -46,6 +50,10 @@ main.container {
   padding-right: 5%;
 }
 
+#timer {
+  width: 45%;
+}
+
 .rules-modal,
 .game-over-modal {
   background: rgba(255, 255, 0, 0.87);
@@ -64,10 +72,6 @@ main.container {
   opacity: 0;
   transition: opacity 500ms;
 }
-/* 
-.hide-modal {
-
-} */
 
 .show-modal {
   visibility: visible;

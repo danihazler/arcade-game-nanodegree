@@ -6,10 +6,15 @@ const finalScore = document.querySelector("#final-score");
 const rulesModal = document.querySelector(".rules-modal");
 const modalBtn = document.querySelector("#close-modal");
 const playBtn = document.querySelector("#play-btn");
+const timer = document.querySelector("#time-counter");
 
 let lives;
 let score;
 let move_player;
+
+let counter = 0;
+let timeLeft = 60;
+
 
 // -- (Re)Start the game
 function newGame() {
@@ -22,10 +27,24 @@ function newGame() {
 
 window.onload = newGame();
 
+// -- Timer ------
+function countdown(){
+
+  timer.innerHTML = timeLeft - counter;
+
+  function timeInt() {
+    counter ++;
+    timer.innerHTML = timeLeft - counter;
+  }
+  setInterval(timeInt, 1000);
+}
+
 // -- Close Modal , Play
 playBtn.addEventListener("click", function(){
   rulesModal.classList.add("hide-modal");
+  countdown();
 });
+
 
 // Player class
 // This class has an update(), render() and
