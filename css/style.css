@@ -60,11 +60,22 @@ main.container {
   background: rgba(255, 255, 0, 0.87);
   border-radius: 25px;
   padding: 3%;
-  height: auto;
-  width: 30%;
   position: absolute;
-  top: 12%;
-  left: 32%;
+}
+
+.rules-modal {
+  min-height: 500px;
+  width: 34%;
+  top: 9%;
+  left: 30%;
+}
+
+.congrats-modal,
+.game-over-modal {
+  height: auto;
+  width: 25%;
+  top: 25%;
+  left: 35%;
 }
 
 .congrats-modal,
@@ -78,6 +89,7 @@ main.container {
 .show-modal {
   visibility: visible;
   opacity: 1;
+  transition: opacity 500ms;
 }
 
 .rules-modal .flex {
@@ -116,4 +128,11 @@ main.container {
   font-weight: 400;
   text-align: justify;
   margin-left: 5%;
+}
+
+.congrats-modal img {
+  display: block;
+  height: 100px;
+  width: 100px;
+  margin: 13px auto;
 }
