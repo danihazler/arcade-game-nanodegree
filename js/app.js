@@ -7,11 +7,12 @@ const rulesModal = document.querySelector(".rules-modal");
 const modalBtn = document.querySelector("#close-modal");
 const playBtn = document.querySelector("#play-btn");
 const timer = document.querySelector("#time-counter");
+const congratsModal = document.querySelector(".congrats-modal");
+const congratsBtn = document.querySelector("#congrats-btn");
 
 let lives;
 let score;
 let move_player;
-
 let counter = 0;
 let timeLeft = 60;
 
@@ -45,6 +46,25 @@ function countdown(){
       clearInterval(interval);
       counter = 0;
       move_player = false;
+    }
+    //-- if Player scores 3000 points, Congratulation Modal opens
+    if (score == 500) {
+      player.x = 200;
+      player.y = 370;
+      congratsModal.classList.add("show-modal");
+      clearInterval(interval);
+      counter = 0;
+      move_player = false;
+    }
+    //-- checks if lives are finished, Game Over modal opens
+    if(lives == 0) {
+      player.x = 200;
+      player.y = 370;
+      gameOverModal.classList.add("show-modal");
+      clearInterval(interval);
+      counter = 0;
+      move_player = false;
+      finalScore.innerHTML = score;
     }
   }
 }
@@ -87,7 +107,6 @@ class Player {
       score += 100;
       scoreCounter.innerHTML = score;
     }
-
   }
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -152,20 +171,21 @@ function handleCollision() {
       player.y = 370;
       lives--;
       livesCounter.innerHTML = lives;
-      //-- checks if lives are finished
-      if(lives == 0) {
-        move_player = false;
-        finalScore.innerHTML = score;
-        gameOverModal.classList.add("show-modal");
-        clearInterval(interval);
-      }
+
     }
   });
 }
 
-// -- Close Modal , Try Again
+// -- Close Game Over Modal , Try Again
 modalBtn.addEventListener("click", function(){
   gameOverModal.classList.remove("show-modal");
+  newGame();
+  countdown();
+});
+
+// -- Close Congratulation Modal , Play Again
+congratsBtn.addEventListener("click", function(){
+  congratsModal.classList.remove("show-modal");
   newGame();
   countdown();
 });
