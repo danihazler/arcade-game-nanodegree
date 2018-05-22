@@ -38,6 +38,8 @@ function countdown(){
     counter ++;
     timer.innerHTML = timeLeft - counter;
     if (counter == timeLeft) {
+      player.x = 200;
+      player.y = 370;
       gameOverModal.classList.add("show-modal");
       finalScore.innerHTML = score;
       clearInterval(interval);
