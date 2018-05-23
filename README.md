@@ -1,5 +1,5 @@
 
-Arcade-Game for Udacity Frontend Nanodegree
+Arcade Game for Udacity Frontend Nanodegree
 ===========================================
 
 Frogger style arcade game using HTML, CSS, and JavaScript.
@@ -11,7 +11,7 @@ Frogger style arcade game using HTML, CSS, and JavaScript.
 - Every time you reach the water you score 100 points.
 - You have 60sec to score 3000 points.
 
-Play here --> [Arcade Game](https://danihazler.github.io/fend-nanodegree-arcade-game/index.html)
+Play here --> [Arcade Game](https://danihazler.github.io/arcade-game-nanodegree/index.html)
 
 ### Good Luck!
 
