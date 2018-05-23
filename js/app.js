@@ -1,21 +1,20 @@
 //-- Variables to handle events
 const livesCounter = document.querySelector("#lives-counter");
 const scoreCounter = document.querySelector("#score-counter");
+const rulesModal = document.querySelector(".rules-modal");
+const congratsModal = document.querySelector(".congrats-modal");
 const gameOverModal = document.querySelector(".game-over-modal");
 const finalScore = document.querySelector("#final-score");
-const rulesModal = document.querySelector(".rules-modal");
-const modalBtn = document.querySelector("#close-modal");
+const tryBtn = document.querySelector("#try-btn");
 const playBtn = document.querySelector("#play-btn");
-const timer = document.querySelector("#time-counter");
-const congratsModal = document.querySelector(".congrats-modal");
 const congratsBtn = document.querySelector("#congrats-btn");
+const timer = document.querySelector("#time-counter");
 
 let lives;
 let score;
 let move_player;
 let counter = 0;
 let timeLeft = 60;
-
 
 // -- (Re)Start the game
 function newGame() {
@@ -48,7 +47,7 @@ function countdown(){
       move_player = false;
     }
     //-- if Player scores 3000 points, Congratulation Modal opens
-    if (score == 500) {
+    if (score == 3000) {
       player.x = 200;
       player.y = 370;
       congratsModal.classList.add("show-modal");
@@ -171,13 +170,12 @@ function handleCollision() {
       player.y = 370;
       lives--;
       livesCounter.innerHTML = lives;
-
     }
   });
 }
 
 // -- Close Game Over Modal , Try Again
-modalBtn.addEventListener("click", function(){
+tryBtn.addEventListener("click", function(){
   gameOverModal.classList.remove("show-modal");
   newGame();
   countdown();
